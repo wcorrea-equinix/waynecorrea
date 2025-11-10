@@ -54,6 +54,8 @@ body {
     border-bottom: 1px solid var(--border-color);
     z-index: 100;
     box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: center;
 }
 
 .nav-container {
@@ -64,6 +66,7 @@ body {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    max-width: 1400px;
 }
 
 .logo {
@@ -120,6 +123,7 @@ body {
     background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
     padding: 80px 40px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .hero-decoration {
