@@ -36,9 +36,10 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
 /* =====================================================
@@ -56,12 +57,13 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 1rem 20px;
+    padding: 1rem 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -112,11 +114,12 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
-    padding: 80px 20px;
+    padding: 80px 40px;
+    width: 100%;
 }
 
 .hero-decoration {
@@ -139,10 +142,13 @@ body {
 }
 
 .hero-content {
-    flex: 1;
     z-index: 10;
-    max-width: 600px;
+    max-width: 800px;
     animation: fadeInUp 0.8s ease-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-title {
@@ -172,6 +178,8 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-bottom: 2.5rem;
+    width: 100%;
+    max-width: 900px;
 }
 
 .stat-card {
@@ -211,6 +219,7 @@ body {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* =====================================================
@@ -258,6 +267,7 @@ body {
 
 section {
     padding: 80px 0;
+    width: 100%;
 }
 
 .section-title {
