@@ -53,28 +53,23 @@ if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-
         // Show loading state
         formStatus.textContent = 'Sending...';
         formStatus.className = 'form-status success';
 
         try {
+            // Create FormData from the form for better compatibility with Formspree
+            const formData = new FormData(contactForm);
+
             // Use Formspree API for no-backend form handling
             const response = await fetch('https://formspree.io/f/myzopbzd', {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+                body: formData
             });
 
-            if (response.ok) {
+            const responseData = await response.json();
+
+            if (response.ok && responseData.ok) {
                 formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
                 formStatus.className = 'form-status success';
                 contactForm.reset();
@@ -84,7 +79,7 @@ if (contactForm) {
                     formStatus.className = 'form-status';
                 }, 5000);
             } else {
-                throw new Error('Form submission failed');
+                throw new Error(responseData.error || 'Form submission failed');
             }
         } catch (error) {
             formStatus.textContent = '✗ Error sending message. Please try emailing directly: waynejcorrea@gmail.com';
